@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { createPost } from "./api/helpers";
+import { createPost } from "./api/auth";
 import { useNavigate } from "react-router-dom";
+import useAuth from "./hooks/useAuth";
 
 function NewPost() {
   const navigate = useNavigate();
-
+  const { token } = useAuth();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -14,7 +15,9 @@ function NewPost() {
       className="form"
       onSubmit={async (e) => {
         e.preventDefault();
-        const result = await createPost(title, description, price);
+        console.log(token);
+        const result = await createPost(title, description, price, token);
+        console.log(result);
         navigate("/");
       }}
     >

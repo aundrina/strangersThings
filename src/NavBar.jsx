@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import useAuth from "./hooks/useAuth";
 
-function NavBar() {
-  const { user, setToken } = useAuth();
+function NavBar({ user, setToken }) {
   return (
     <div className="Nav">
+      <h1>Hello {user.username}</h1>
       <Link to="/" className="home">
         Home
       </Link>
 
-      <Link to="/posts" className="posts">
-        Posts
-      </Link>
       {user.username === "Guest" ? (
         <>
           <Link to="/login" className="login">

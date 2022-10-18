@@ -1,28 +1,37 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { loginUser } from "./api/auth";
 import useAuth from "./hooks/useAuth";
 
-function Login() {
+function Login({ setToken }) {
   const navigate = useNavigate();
-
-  const { setToken } = useAuth();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   return (
     <form
       onSubmit={async (e) => {
         e.preventDefault();
         const result = await loginUser(username, password);
-        navigate("/");
-        const token = result.data.token;
-        localStorage.setItem("token", token);
-        setToken(token);
-        console.log(token);
+        console.log(result);
+        if (result.success) {
+          const token = result.data.token;
+          localStorage.setItem("token", token);
+          setToken(token);
+          console.log("the token is:", token);
+          setPassword("");
+          setUsername("");
+
+          navigate("/");
+        } else {
+          console.log("we are in the else");
+          setError(result.error.message);
+        }
       }}
     >
+      {error && <h4>{error}</h4>}
       <input
         value={username}
         onChange={(e) => setUsername(e.target.value)}

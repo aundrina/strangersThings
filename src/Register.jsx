@@ -3,10 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { registerUser } from "./api/auth";
 import useAuth from "./hooks/useAuth";
 
-function Login() {
+function Login({ setToken }) {
   const navigate = useNavigate();
-
-  const { setToken } = useAuth();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
