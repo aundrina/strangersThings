@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "./api/auth";
+import { registerUser } from "./api/auth";
 import useAuth from "./hooks/useAuth";
 
 function Login() {
@@ -15,7 +15,7 @@ function Login() {
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        const result = await loginUser(username, password);
+        const result = await registerUser(username, password);
         navigate("/");
         const token = result.data.token;
         localStorage.setItem("token", token);

@@ -9,11 +9,13 @@ export default function useAuth() {
     async function getMe() {
       const result = await fetchMe(token);
       setUser(result.data);
-      console.log(user);
     }
     if (token) {
       getMe();
+    } else if (token === "") {
+      setUser({ username: "Guest" });
     }
+    console.log(user.username);
   }, [token]);
 
   return {
