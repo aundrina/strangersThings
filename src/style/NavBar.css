@@ -1,0 +1,26 @@
+.Nav {
+  background-color: azure;
+  width: 100vw;
+
+  /* color: black; */
+}
+.greeting {
+  background-color: azure;
+  color: black;
+}
+.links {
+  background-color: azure;
+  display: flex;
+  justify-content: space-between;
+}
+.home {
+  background-color: azure;
+}
+
+.login {
+  background-color: azure;
+}
+
+.register {
+  background-color: azure;
+}
