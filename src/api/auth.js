@@ -72,7 +72,7 @@ export const createPost = async (title, description, price, token) => {
   return result;
 };
 
-export async function Delete(id, token) {
+export async function deletePost(id, token) {
   const response = fetch(
     `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts/${id}`,
     {
@@ -82,6 +82,14 @@ export async function Delete(id, token) {
         Authorization: `Bearer ${token}`,
       },
     }
+  );
+  const result = await response.json();
+  return result;
+}
+
+export async function getPostById(id, token) {
+  const response = fetch(
+    `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts/${id}`
   );
   const result = await response.json();
   return result;

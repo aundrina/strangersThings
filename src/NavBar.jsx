@@ -24,6 +24,7 @@ function NavBar({ user, setToken }) {
         ) : null}
         {user.username !== "Guest" ? (
           <button
+            className="logout"
             onClick={() => {
               localStorage.removeItem("token");
               setToken("");

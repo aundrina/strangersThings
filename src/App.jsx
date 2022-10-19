@@ -8,6 +8,7 @@ import NavBar from "./NavBar";
 import Login from "./Login";
 import Register from "./Register";
 import useAuth from "./hooks/useAuth";
+import SinglePost from "./SinglePost";
 
 function App() {
   const { setToken, user } = useAuth();
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route>
           <Route path="/" element={<Home />} />
+          <Route path="/posts/:id" element={<SinglePost />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="register" element={<Register setToken={setToken} />} />
