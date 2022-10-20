@@ -11,7 +11,6 @@ export default function useAuth() {
       setUser(result.data);
     }
     if (token) {
-      console.log(token);
       getMe();
     } else if (token === "") {
       setUser({ username: "Guest" });

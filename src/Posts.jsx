@@ -13,7 +13,6 @@ function Posts() {
       const allPosts = await fetchPosts();
       SetPosts(allPosts);
     }
-    console.log("we are in the useEffect");
     getAllPosts();
   }, []);
 

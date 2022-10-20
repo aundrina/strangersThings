@@ -1,0 +1,23 @@
+.message {
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+  border: solid 3px white;
+  margin: 5px;
+  width: 45vw;
+}
+
+.msgCat {
+  color: white;
+}
+
+.msgContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.msgPostTitle {
+  text-decoration: underline;
+}

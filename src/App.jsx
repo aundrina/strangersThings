@@ -9,7 +9,9 @@ import Login from "./Login";
 import Register from "./Register";
 import useAuth from "./hooks/useAuth";
 import SinglePost from "./SinglePost";
-import Messages from "./messages";
+import Messages from "./Messages";
+import Profile from "./Profile";
+import NewPost from "./NewPost";
 
 function App() {
   const { setToken, user } = useAuth();
@@ -19,7 +21,9 @@ function App() {
       <Routes>
         <Route>
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/posts/:id" user={user} element={<SinglePost />} />
+          <Route path="newpost" element={<NewPost />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/login" element={<Login setToken={setToken} />} />
           <Route path="register" element={<Register setToken={setToken} />} />

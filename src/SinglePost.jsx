@@ -7,10 +7,10 @@ import { deletePost } from "./api/auth";
 import useAuth from "./hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-export default function SinglePost({ user }) {
+export default function SinglePost() {
   // use the useParams hook from react-router-dom to read the url :id
   const { id } = useParams();
-  const { token } = useAuth();
+  const { token, user } = useAuth();
   const [individualPost, setIndividualPost] = useState({});
   const navigate = useNavigate();
   useEffect(() => {
@@ -20,34 +20,34 @@ export default function SinglePost({ user }) {
       const [onePost] = posts.filter((post) => {
         return post._id === id;
       });
-      console.log(onePost);
       setIndividualPost(onePost);
     }
     getPost();
   }, []);
-  console.log("the individualPost is:", individualPost);
 
+  console.log("tryna do delete", user, individualPost);
   return (
     <div className="singlePost">
       <h4>{individualPost.title}</h4>
       <h3> {individualPost.description}</h3>
       <h3>{individualPost.price}</h3>
+      {user?.username == individualPost.author?.username && (
+        <button
+          onClick={() => {
+            navigate(`/`);
+            deletePost(individualPost._id, token);
+          }}
+        >
+          Delete Post{" "}
+        </button>
+      )}
 
-      {/* {individualPost.isAuthor ? ( */}
-      <button
-        onClick={() => {
-          navigate(`/`);
-          deletePost(individualPost._id, token);
-        }}
-      >
-        Delete Post{" "}
-      </button>
       <button
         onClick={() => {
           navigate(`/posts/${individualPost._id}/messages`);
         }}
       >
-        Messages
+        Send Message
       </button>
     </div>
   );

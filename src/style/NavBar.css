@@ -4,12 +4,17 @@
   background-color: azure;
   width: 100vw;
   align-items: center;
-  /* color: black; */
+
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 .greeting {
   background-color: azure;
   color: black;
+  margin: 0;
+  margin-top: 10px;
 }
 .links {
   background-color: azure;
@@ -31,4 +36,27 @@
 
 .logout {
   background-color: azure;
+  margin-left: 5px;
+}
+
+.profile {
+  background-color: azure;
+}
+
+.userViewButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: azure;
+}
+
+.webTitle {
+  background-color: azure;
+  margin: 0;
+  margin-top: 7px;
+}
+
+.newpost {
+  background-color: azure;
+  margin-left: 10px;
 }

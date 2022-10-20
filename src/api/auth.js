@@ -9,7 +9,6 @@ export async function fetchMe(token) {
     }
   );
   const result = await response.json();
-  console.log(result);
   return result;
 }
 
@@ -54,7 +53,6 @@ export async function loginUser(username, password) {
 }
 
 export const createPost = async (title, description, price, token) => {
-  console.log("token in createPost:", token);
   const response = await fetch(
     `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts`,
     {
@@ -96,7 +94,8 @@ export async function getPostById(id, token) {
 }
 
 export const sendMessage = async (content, id, token) => {
-  console.log("token in createPost:", token);
+  console.log("token in sendMessage:", token);
+  console.log("content and id in sendmsg", content, id);
   const response = await fetch(
     `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts/${id}/messages`,
     {

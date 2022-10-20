@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import fetchMessage from "./api/helpers";
 import { sendMessage } from "./api/auth";
 import { useNavigate } from "react-router-dom";
+import styles from "./style/Messages.css";
 
 export default function Messages() {
   const [message, setMessage] = useState({});
@@ -11,14 +12,16 @@ export default function Messages() {
   const { token } = useAuth();
   const [newMessage, setNewMessage] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     async function getMessage() {
-      const Message = await fetchMessage(id);
+      const message = await fetchMessage(id);
       setMessage(message);
+      console.log("msg is:", message);
     }
     getMessage();
   }, []);
-  console.log("the message is", message);
+
   return (
     <div className="message">
       <h4>{message.content}</h4>
@@ -26,11 +29,13 @@ export default function Messages() {
         onSubmit={async (e) => {
           e.preventDefault();
           const result = await sendMessage(newMessage, id, token);
+          setNewMessage("");
 
           //   navigate("/");
         }}
       >
         <input
+          className="input"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           type="text"
