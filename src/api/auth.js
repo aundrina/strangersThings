@@ -94,3 +94,22 @@ export async function getPostById(id, token) {
   const result = await response.json();
   return result;
 }
+
+export const sendMessage = async (content, id, token) => {
+  console.log("token in createPost:", token);
+  const response = await fetch(
+    `https://strangers-things.herokuapp.com/api/2209-FTB-PT-WEB-FT/posts/${id}/messages`,
+    {
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        message: { content },
+      }),
+    }
+  );
+  const result = await response.json();
+  return result;
+};
