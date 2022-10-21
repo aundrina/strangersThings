@@ -44,7 +44,6 @@ export default function Messages() {
 
         <button>Submit</button>
       </form>
-      ;
     </div>
   );
 }

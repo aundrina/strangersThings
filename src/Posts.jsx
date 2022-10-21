@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import fetchPosts from "./api/helpers";
 import SinglePost from "./SinglePost";
-import styles from "./style/posts.css";
+import "./style/posts.css";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function Posts() {
@@ -19,7 +19,7 @@ function Posts() {
   const postMatches = (post, text) => {
     // return true if any of the fields you want to check against include the text
     // strings have an .includes() method
-    return post.title.toLowerCase().includes(text);
+    return post.title.toLowerCase().includes(text.toLowerCase());
   };
 
   const filteredPosts = posts.filter((post) => postMatches(post, searchTerm));
@@ -28,6 +28,7 @@ function Posts() {
     <div className="posts">
       <form>
         <input
+          className="searchIn"
           type="text"
           placeholder="search"
           onChange={(e) => setSearchTerm(e.target.value)}

@@ -12,6 +12,7 @@ import SinglePost from "./SinglePost";
 import Messages from "./Messages";
 import Profile from "./Profile";
 import NewPost from "./NewPost";
+import Edit from "./Edit";
 
 function App() {
   const { setToken, user } = useAuth();
@@ -22,6 +23,7 @@ function App() {
         <Route>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/posts/:id/edit" element={<Edit />} />
           <Route path="/posts/:id" user={user} element={<SinglePost />} />
           <Route path="newpost" element={<NewPost />} />
           <Route path="/posts" element={<Posts />} />

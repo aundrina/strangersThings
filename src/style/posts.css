@@ -30,3 +30,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.searchIn {
+  color: white;
+}

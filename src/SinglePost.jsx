@@ -3,7 +3,7 @@ import fetchPosts from "./api/helpers";
 import Posts from "./Posts";
 import { useParams } from "react-router-dom";
 import styles from "./style/SinglePost.css";
-import { deletePost } from "./api/auth";
+import { deletePost, editPost } from "./api/auth";
 import useAuth from "./hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
@@ -39,6 +39,15 @@ export default function SinglePost() {
           }}
         >
           Delete Post{" "}
+        </button>
+      )}
+      {user?.username == individualPost.author?.username && (
+        <button
+          onClick={() => {
+            navigate(`/posts/${individualPost._id}/edit`);
+          }}
+        >
+          Edit Post{" "}
         </button>
       )}
 
