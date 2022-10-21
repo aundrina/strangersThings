@@ -7,7 +7,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 function Posts() {
   const navigate = useNavigate();
   const [posts, SetPosts] = useState([]);
-
+  const [searchTerm, setSearchTerm] = useState("");
   useEffect(() => {
     async function getAllPosts() {
       const allPosts = await fetchPosts();
@@ -16,11 +16,26 @@ function Posts() {
     getAllPosts();
   }, []);
 
+  const postMatches = (post, text) => {
+    // return true if any of the fields you want to check against include the text
+    // strings have an .includes() method
+    return post.title.toLowerCase().includes(text);
+  };
+
+  const filteredPosts = posts.filter((post) => postMatches(post, searchTerm));
+  const postsToDisplay = searchTerm.length ? filteredPosts : posts;
   return (
     <div className="posts">
+      <form>
+        <input
+          type="text"
+          placeholder="search"
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </form>
       <h1> Posts</h1>
       <div className="container">
-        {posts.map((post) => {
+        {postsToDisplay.map((post) => {
           return (
             <div className="post" key={post._id}>
               <h4>{post.title} </h4>
