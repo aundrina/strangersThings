@@ -3,13 +3,13 @@
   flex-direction: column;
 
   color: white;
-  border: solid 3px white;
+  border: solid 3px #ae0d0d;
   margin: 5px;
   width: 45vw;
 }
 
 .msgCat {
-  color: white;
+  color: #ae0d0d;
 }
 
 .msgContainer {

@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-image: url("https://variety.com/wp-content/uploads/2021/11/FDhS_61WEAMuWVW.jpg");
 }
 .singlePost {
   color: white;
-  border: solid white 2px;
+  border: solid #ae0d0d 2px;
   margin: 5px;
 }

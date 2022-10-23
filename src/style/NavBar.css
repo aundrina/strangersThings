@@ -1,7 +1,7 @@
 .Nav {
   display: flex;
   flex-direction: column;
-  background-color: azure;
+  background-color: #ae0d0d;
   width: 100vw;
   align-items: center;
 
@@ -11,52 +11,54 @@
 }
 
 .greeting {
-  background-color: azure;
+  background-color: #ae0d0d;
   color: black;
   margin: 0;
   margin-top: 10px;
 }
 .links {
-  background-color: azure;
+  background-color: #ae0d0d;
   display: flex;
   justify-content: space-between;
   width: 85vw;
 }
 .home {
-  background-color: azure;
+  background-color: #ae0d0d;
 }
 
 .login {
-  background-color: azure;
+  background-color: #ae0d0d;
 }
 
 .register {
-  background-color: azure;
+  background-color: #ae0d0d;
+  color: black;
 }
 
 .logout {
-  background-color: azure;
+  background-color: #ae0d0d;
   margin-left: 5px;
 }
 
 .profile {
-  background-color: azure;
+  background-color: #ae0d0d;
 }
 
 .userViewButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: azure;
+  background-color: #ae0d0d;
 }
 
 .webTitle {
-  background-color: azure;
+  background-color: #ae0d0d;
   margin: 0;
   margin-top: 7px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .newpost {
-  background-color: azure;
+  background-color: #ae0d0d;
   margin-left: 10px;
 }

@@ -7,6 +7,8 @@
   display: flex;
   flex-direction: column;
   color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -19,8 +21,8 @@
   justify-content: space-between;
   width: 30%;
   margin: 5px;
-  border: 2px solid white;
-  box-shadow: 0 2px 4px 0px rgb(212, 208, 208);
+  border: 2px solid #ae0d0d;
+  box-shadow: 3px 2px 3px 0px #ae0d0d;
   color: white;
 }
 .container {
@@ -33,4 +35,7 @@
 
 .searchIn {
   color: white;
+}
+.button :hover {
+  color: blue;
 }
